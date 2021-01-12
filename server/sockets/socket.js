@@ -24,8 +24,7 @@ io.on('connection', (client) => {
         if (!data.desktop) {
             return callback({err: true, message: 'El escritorio es requerido'})
         }
-
-        console.log('ok');
+        
         let processTicket = ticketControl.processTicket(data.desktop)
         callback(processTicket)
 

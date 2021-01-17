@@ -26,7 +26,7 @@ $("button").on("click", function () {
       lbl.text(resp);
       return;
     }
-    lbl.text(resp.number);
+    lbl.text('Ticket '+resp.number);
     console.log(resp);
   });
 });

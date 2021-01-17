@@ -58,6 +58,10 @@ class TicketControl {
     return `Ticket ${this.lastOne}`;
   }
 
+  getLast4Tickets() {
+    return this.last4Tickets;
+  }
+
   processTicket(desktop) {
     if (this.tickets.length === 0) {
       return "No hay tickets";

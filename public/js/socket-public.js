@@ -14,12 +14,18 @@ var lblDesktops = [lblDesktop1,lblDesktop2,lblDesktop3,lblDesktop4]
 
 function updateHTML(last4tickets) {
     for (let i = 0; i < last4tickets.length; i++) {
-        lblTickets[i].text('Ticket'+last4tickets[i].number)
-        lblDesktops[i].text('Escritorio'+last4tickets[i].desktop)
+        lblTickets[i].text('Ticket '+last4tickets[i].number)
+        lblDesktops[i].text('Escritorio '+last4tickets[i].desktop)
     }
 }
 
 socket.on('current-status', function(data) {
     console.log(data)
+    updateHTML(data.last4tickets)
+})
+
+socket.on('last4tickets', function (data) {
+    var audio = new Audio('audio/new-ticket.mp3')
+    audio.play()
     updateHTML(data.last4tickets)
 })
